@@ -8,7 +8,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Smart Class Plus Plus',
+      darkTheme: ThemeData(
+        backgroundColor: Colors.black45,
+        appBarTheme: AppBarTheme(
+          color: Colors.black38,
+          elevation: 10,
+          iconTheme: IconThemeData(
+            color: Colors.white
+          ),
+        ),
+      ),
+      theme: ThemeData(
+        backgroundColor: Colors.black12,
+        appBarTheme: AppBarTheme(
+          color: Colors.orange,
+          elevation: 1,
+          iconTheme: IconThemeData(
+            color: Colors.white
+          ),
+        ),
+      ),
       home: MainPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
