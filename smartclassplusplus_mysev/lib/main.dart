@@ -27,6 +27,14 @@ class MyApp extends StatelessWidget {
             color: Colors.white
           ),
         ),
+        textTheme: TextTheme(
+          body1: TextStyle(
+            color: Colors.black,
+          ),
+          body2: TextStyle(
+            color: Colors.white,
+          ),
+        ),    
       ),
       home: MainPage(),
       debugShowCheckedModeBanner: false,

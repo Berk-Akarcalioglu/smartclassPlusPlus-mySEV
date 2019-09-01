@@ -1,4 +1,6 @@
 
+import 'package:smartclassplusplus_mysev/Resources/Classes.dart';
+
 class GPA {
   
   List<double> credits = [5, 1, 5, 5];
@@ -8,25 +10,35 @@ class GPA {
     return totalGrade /totalCredits;
   }
 
-  double getTotalGrade() {
+  double getTotalGrade(Map lessons) {
 
     double total = 0;
 
-    for (var i = 0; i < (grades.length + credits.length) / 2; i++) {
-      total += credits[i] * grades[i];
+    for (var lesson in lessons.values) {
+      Lesson temp = lesson;
+
+      total += convertToUSGrade(temp.getGrade()) * temp.credit;
+      print("${temp.name}'s grade is: ${convertToUSGrade(temp.getGrade())}");
     }
+
+    print("Total grade: ${total}");
 
     return total;
   }
 
-  double getTotalCredit() {
+  double getTotalCredit(Map lessons) {
     
 
     double total = 0;
 
-    for (var credit in credits) {
-      total += credit;
+    for (var lesson in lessons.values) {
+      Lesson temp = lesson; 
+
+      total += temp.credit;
+      print("${temp.name}'s credit is: ${temp.credit}");
     }
+
+    print("Total credits: ${total}");
 
     return total;
   }
