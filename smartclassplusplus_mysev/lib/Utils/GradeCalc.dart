@@ -56,15 +56,20 @@ class GPA {
   try{
 
     if ((input1.isEmpty) || (input2.isEmpty) || (wanted.isEmpty)) {
-      throw Exception(["Please fill in all of the inputs."]);
+      throw ("Please fill in all of the inputs.");
+    }else if (firstgrade == String || secondgrade == String || wantedgrade == String ){
+      throw("You cannot write a string.");
     }else if((firstgrade > 100) || (secondgrade > 100) || (wantedgrade > 100)){
       _predictedGrade = 0.0;
-      throw Exception(["You cannot enter a grade bigger than a hundred."]);
+      throw ("You cannot enter a grade bigger than a hundred.");
     }else if((_predictedGrade > 100) || (_predictedGrade < 0)) {
       _predictedGrade = 0.0;
-      throw Exception(["Sorry, that is impossible"]);
+      throw ("Sorry, that is impossible");
+    }else if(firstgrade<0 || secondgrade<0){         
+      _predictedGrade = 0.0;
+      throw("A grade cannot be smaller than zero");
     }else if(_predictedGrade == 0) {
-      throw Exception(["Keep it up"]);
+      throw ("Keep it up");
     }else {
       _predictedGrade = (3*wantedgrade)- (firstgrade+secondgrade);
     }

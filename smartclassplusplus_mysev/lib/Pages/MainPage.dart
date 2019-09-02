@@ -12,7 +12,7 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         elevation: Theme.of(context).appBarTheme.elevation,
         backgroundColor: Theme.of(context).appBarTheme.color,
-        title: Text('Smart Class Plus Plus'),
+        title: Text('Smart Class++'),
         actions: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

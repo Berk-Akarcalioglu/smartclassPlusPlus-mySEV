@@ -58,7 +58,7 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
             Container(
               alignment: Alignment.center,
               child: Text(
-                  "gpa : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
+                  "GPA : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
             ),
           ],
         ),
