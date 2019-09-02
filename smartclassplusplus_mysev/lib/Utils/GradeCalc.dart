@@ -47,11 +47,37 @@ class GPA {
 
   void gradePrediction(String input1, String input2, String wanted) {
 
-    double predictionInput1 = input1 == "" ? 0.0 : double.parse(input1);
-    double predictionInput2 = input2 == "" ? 0.0 : double.parse(input2);
-    double predictionInputWanted = wanted == "" ? 0.0 : double.parse(wanted);
+    double firstgrade = input1 == "" ? 0.0 : double.parse(input1);
+    double secondgrade = input2 == "" ? 0.0 : double.parse(input2);
+    double wantedgrade = wanted == "" ? 0.0 : double.parse(wanted);
 
-    _predictedGrade = 0.0;
+    _predictedGrade = 3*(wantedgrade)- (firstgrade+secondgrade);
+  try{
+  double firstgrade = input1 == "" ? 0.0 : double.parse(input1);
+  double secondgrade = input2 == "" ? 0.0 : double.parse(input2);
+  double wantedgrade = wanted == "" ? 0.0 : double.parse(wanted);
+
+  _predictedGrade = 3*(wantedgrade)- (firstgrade+secondgrade);
+
+    if(firstgrade>100){
+    print("You cannot enter a grade bigger than a hundred.");
+    throw Exception();
+    }
+    if(secondgrade>100){
+    print("You cannot enter a grade bigger than a hundred.");
+    throw Exception();
+    }
+    if(wantedgrade>100){
+    print("You cannot enter a grade bigger than a hundred.");
+    throw Exception();
+    }
+    if(_predictedGrade>100){
+    print("You cannot enter a grade bigger than a hundred.");
+    throw Exception();
+    }
+  }catch (e){
+    
+  }
   }
 
   double getPredictedGrade() {
@@ -60,4 +86,7 @@ class GPA {
 
 }
 
+
+
 final GPA gpa = GPA();
+
