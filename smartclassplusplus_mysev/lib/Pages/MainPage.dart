@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartclassplusplus_mysev/Pages/GPAPredictionPage.dart';
 import 'package:smartclassplusplus_mysev/Pages/GradeCalcPage.dart';
 import 'package:smartclassplusplus_mysev/Utils/Buttons/DrawerButton.dart';
 import 'package:smartclassplusplus_mysev/Utils/dummyNews.dart';
@@ -47,6 +48,12 @@ class MainPage extends StatelessWidget {
                 Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(
                   builder: (BuildContext context) => GradeCalcPage()
+                ));
+              }),
+              drawerButton(context, "Grade Predictor", Icons.grade, Colors.white, Colors.black, (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (BuildContext context) => GPAPredictionPage()
                 ));
               }),
               testbuttonsdrawer(context),
