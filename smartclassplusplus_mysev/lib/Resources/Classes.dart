@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-List<double> gradeslist = [60, 66.0, 76.0, 86.0, 98.0, 100.0, ];
+List<double> gradeslist = [60, 66.0, 76.0, 86.0, 88.0, 100.0, ];
 
 class Classes {
   var lessons = new Map();
@@ -71,7 +71,7 @@ Widget examList(BuildContext context, Lesson lesson) {
             color: gradeColor(convertToUSGrade(exam.grade)),
             shape: BoxShape.rectangle,
             border: Border.all(
-              color: Colors.amberAccent,
+              color: Colors.transparent,
             ),
             borderRadius: BorderRadius.circular(30)
           ),
@@ -89,16 +89,16 @@ Widget examList(BuildContext context, Lesson lesson) {
                   children: <Widget>[
                     Text(
                       "Lesson: ${lesson.name}",
-                      style: Theme.of(context).textTheme.body1,
+                      style: Theme.of(context).textTheme.body2,
 
                     ),
                     Text(
-                      "Grade: ${exam.grade}",
-                      style: Theme.of(context).textTheme.body1,
+                      "Exam Name: ${exam.name}",
+                      style: Theme.of(context).textTheme.body2,
                     ),
                     Text(
-                      "Exam Name: ${exam.name}",
-                      style: Theme.of(context).textTheme.body1,
+                      "Grade: ${exam.grade}",
+                      style: Theme.of(context).textTheme.body2,
                     ),
                   ],
                 ),
@@ -121,9 +121,9 @@ Color gradeColor(double grade) {
   }else if (grade == 3.7) {
     return Colors.green;
   }else if (grade == 3.3) {
-    return Colors.lime;
+    return Colors.green[300];
   }else if (grade == 3.0) {
-    return Colors.limeAccent;
+    return Colors.yellow[600];
   }else if (grade == 2.7) {
     return Colors.orange[400];
   }else if (grade == 2.3) {

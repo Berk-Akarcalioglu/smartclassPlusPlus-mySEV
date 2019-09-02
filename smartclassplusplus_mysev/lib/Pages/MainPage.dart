@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smartclassplusplus_mysev/Pages/GradeCalcPage.dart';
 import 'package:smartclassplusplus_mysev/Utils/Buttons/DrawerButton.dart';
+import 'package:smartclassplusplus_mysev/Utils/dummyNews.dart';
 import 'package:smartclassplusplus_mysev/Utils/testButtonsDrawer.dart';
 
 class MainPage extends StatelessWidget {
@@ -54,7 +55,15 @@ class MainPage extends StatelessWidget {
         ),
       ),
         body: Container(
+          height: MediaQuery.of(context).size.height,
           color: Theme.of(context).backgroundColor,
+          child: PageView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              dummyNews(context, "1"),
+              dummyNews(context, "2")
+            ],
+          ),
       ),
     );
   }

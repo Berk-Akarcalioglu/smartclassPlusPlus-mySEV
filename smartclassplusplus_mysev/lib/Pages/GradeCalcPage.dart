@@ -29,7 +29,7 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
             examList(context, yearClass.lessons['math']),
             Container(
               alignment: Alignment.center,
-              child: Text("gpa : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons))}"),
+              child: Text("gpa : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
             ),
           ],
         ),
