@@ -27,9 +27,19 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
                     return Dialog(
                       elevation: 0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(50)),
+                        child: Scaffold(
+                          backgroundColor: Colors.transparent,
+                          body: GPAPredictor()
+                          ),
                       ),
-                      child: GPAPredictor(),
                     );
                   });
             },
@@ -53,7 +63,6 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
           ],
         ),
       ),
-      
     );
   }
 }

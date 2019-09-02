@@ -17,6 +17,7 @@ class _GPAPredictorState extends State<GPAPredictor> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -32,13 +33,33 @@ class _GPAPredictorState extends State<GPAPredictor> {
               hintText: "Grade 2",
             ),
           ),
-          Text(_temp == "" ? _gpa.getPredictedGrade().toString() : _temp),
+          Text(_temp == ""
+              ? (_temp == "Error"
+                  ? _temp
+                  : _temp == "0.0"
+                      ? /*_temp*/ ""
+                      : ("Min Grade needed:" +
+                          _gpa.getPredictedGrade().toString()))
+              : _temp),
           RaisedButton(
             onPressed: () {
               setState(() {
-                _gpa.gradePrediction(gpaCont.text, gpaCont2.text, gpaCont3.text);
-                print(_gpa.getPredictedGrade());
+                _gpa.gradePrediction(
+                    gpaCont.text, gpaCont2.text, gpaCont3.text);
+                print("Predicted Grade: ${_gpa.getPredictedGrade()}");
                 _temp = _gpa.getPredictedGrade().toString();
+                if (_gpa.error != null) {
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                    backgroundColor: Theme.of(context).accentColor,
+                    content: Text(_gpa.error),
+                  ));
+                  _temp = "Error";
+                  _gpa.error = null;
+                }
               });
             },
           ),

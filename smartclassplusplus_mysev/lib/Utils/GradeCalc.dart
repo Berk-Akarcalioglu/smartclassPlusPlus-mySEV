@@ -7,6 +7,7 @@ class GPA {
   List<double> grades = [4, 3, 2, 0];
 
   double _predictedGrade = 0.0;
+  String error;
 
   double gpa(double totalCredits, double totalGrade) {
     return totalGrade /totalCredits;
@@ -45,7 +46,7 @@ class GPA {
     return total;
   }
 
-  void gradePrediction(String input1, String input2, String wanted) {
+  void gradePrediction(String input1, String input2, String wanted) async{
 
     double firstgrade = input1 == "" ? 0.0 : double.parse(input1);
     double secondgrade = input2 == "" ? 0.0 : double.parse(input2);
@@ -53,30 +54,24 @@ class GPA {
 
     _predictedGrade = 3*(wantedgrade)- (firstgrade+secondgrade);
   try{
-  double firstgrade = input1 == "" ? 0.0 : double.parse(input1);
-  double secondgrade = input2 == "" ? 0.0 : double.parse(input2);
-  double wantedgrade = wanted == "" ? 0.0 : double.parse(wanted);
 
-  _predictedGrade = 3*(wantedgrade)- (firstgrade+secondgrade);
-
-    if(firstgrade>100){
-    print("You cannot enter a grade bigger than a hundred.");
-    throw Exception();
+    if ((input1.isEmpty) || (input2.isEmpty) || (wanted.isEmpty)) {
+      throw Exception(["Please fill in all of the inputs."]);
+    }else if((firstgrade > 100) || (secondgrade > 100) || (wantedgrade > 100)){
+      _predictedGrade = 0.0;
+      throw Exception(["You cannot enter a grade bigger than a hundred."]);
+    }else if((_predictedGrade > 100) || (_predictedGrade < 0)) {
+      _predictedGrade = 0.0;
+      throw Exception(["Sorry, that is impossible"]);
+    }else if(_predictedGrade == 0) {
+      throw Exception(["Keep it up"]);
+    }else {
+      _predictedGrade = (3*wantedgrade)- (firstgrade+secondgrade);
     }
-    if(secondgrade>100){
-    print("You cannot enter a grade bigger than a hundred.");
-    throw Exception();
-    }
-    if(wantedgrade>100){
-    print("You cannot enter a grade bigger than a hundred.");
-    throw Exception();
-    }
-    if(_predictedGrade>100){
-    print("You cannot enter a grade bigger than a hundred.");
-    throw Exception();
-    }
-  }catch (e){
     
+  }catch (e){
+    error = e.toString();
+    print(e);
   }
   }
 
