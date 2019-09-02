@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-List<double> gradeslist = [60, 66.0, 76.0, 86.0, 88.0, 100.0, ];
+List<double> gradeslist = [60.0, 66.0, 76.0, 86.0, 88.0, 100.0, ];
 
 class Classes {
   var lessons = new Map();

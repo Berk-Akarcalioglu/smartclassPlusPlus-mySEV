@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:smartclassplusplus_mysev/Pages/GPAPredictor.dart';
 import 'package:smartclassplusplus_mysev/Resources/Classes.dart';
 import '../Utils/GradeCalc.dart';
 
@@ -18,6 +18,24 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
         elevation: Theme.of(context).appBarTheme.elevation,
         backgroundColor: Theme.of(context).appBarTheme.color,
         title: Text("Grade Calculator"),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: GPAPredictor(),
+                    );
+                  });
+            },
+            icon: Icon(Icons.note_add),
+          ),
+        ],
       ),
       body: Container(
         alignment: Alignment.center,
@@ -29,12 +47,13 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
             examList(context, yearClass.lessons['math']),
             Container(
               alignment: Alignment.center,
-              child: Text("gpa : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
+              child: Text(
+                  "gpa : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
             ),
           ],
         ),
       ),
+      
     );
   }
 }
-

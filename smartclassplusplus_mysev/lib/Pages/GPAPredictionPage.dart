@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Utils/GradeCalc.dart';
+import 'package:smartclassplusplus_mysev/Pages/GPAPredictor.dart';
 
 class GPAPredictionPage extends StatefulWidget {
   @override
@@ -7,13 +7,6 @@ class GPAPredictionPage extends StatefulWidget {
 }
 
 class _GPAPredictionPageState extends State<GPAPredictionPage> {
-  final gpaCont = new TextEditingController();
-  final gpaCont2 = new TextEditingController();
-  final gpaCont3 = new TextEditingController();
-
-  final _gpa = new GPA();
-  String _temp = "";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,50 +16,9 @@ class _GPAPredictionPageState extends State<GPAPredictionPage> {
         title: Text("Grade Predictor"),
       ),
         body: Container(
-        alignment: Alignment.center,
-        child: Material(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextFormField(
-                controller: gpaCont,
-                onEditingComplete: (){
-                  _temp = gpaCont.text;
-                },
-                decoration: InputDecoration(
-                  hintText: "Grade 1",
-                ),
-              ),
-              TextFormField(
-                controller: gpaCont,
-                onEditingComplete: (){
-                  _temp = gpaCont2.text;
-                },
-                decoration: InputDecoration(
-                  hintText: "Grade 2",
-                ),
-              ),
-              Text(_gpa.getPredictedGrade().toString()),
-              RaisedButton(
-                onPressed: () {
-                  setState(() {
-                    _gpa.gradePrediction(gpaCont.text, gpaCont2.text, gpaCont3.text);
-                  });
-                },
-              ),
-              TextFormField(
-                controller: gpaCont3,
-                onEditingComplete: (){
-                  _temp = gpaCont.text;
-                },
-                decoration: InputDecoration(
-                  hintText: "Wanted Grade",
-                ),
-              ),
-            ],
+          alignment: Alignment.center,
+          child: GPAPredictor()
           ),
-        ),
-      ),
     );
   }
 }

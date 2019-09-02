@@ -21,18 +21,18 @@ class MainPage extends StatelessWidget {
                 icon: Icon(
                   Icons.library_books,
                   color: Theme.of(context).appBarTheme.iconTheme.color,
-                ), 
+                ),
                 onPressed: () {},
               ),
               IconButton(
                 icon: Icon(
                   Icons.search,
                   color: Theme.of(context).appBarTheme.iconTheme.color,
-                ), 
+                ),
                 onPressed: () {},
               ),
             ],
-          )
+          ),
         ],
       ),
       drawer: Drawer(
@@ -40,37 +40,39 @@ class MainPage extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Colors.orangeAccent,
+          color: Theme.of(context).accentColor,
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
-              drawerButton(context, "Grade Calculator", Icons.grade, Colors.white, Colors.black, (){
+              drawerButton(context, "Grade Calculator", Icons.grade,
+                  Colors.white, Colors.black, () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (BuildContext context) => GradeCalcPage()
-                ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => GradeCalcPage()));
               }),
-              drawerButton(context, "Grade Predictor", Icons.grade, Colors.white, Colors.black, (){
+              drawerButton(context, "Grade Predictor", Icons.grade,
+                  Colors.white, Colors.black, () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (BuildContext context) => GPAPredictionPage()
-                ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            GPAPredictionPage()));
               }),
               testbuttonsdrawer(context),
             ],
           ),
         ),
       ),
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          color: Theme.of(context).backgroundColor,
-          child: PageView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              dummyNews(context, "1"),
-              dummyNews(context, "2")
-            ],
-          ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        color: Theme.of(context).backgroundColor,
+        child: PageView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[dummyNews(context, "1"), dummyNews(context, "2")],
+        ),
       ),
     );
   }
