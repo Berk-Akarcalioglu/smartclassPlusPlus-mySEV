@@ -67,11 +67,11 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height / 3,
         color: Theme.of(context).backgroundColor,
         child: PageView(
           scrollDirection: Axis.horizontal,
-          children: <Widget>[dummyNews(context, "1"), dummyNews(context, "2")],
+          children: <Widget>[dummyNews(context, "1"), dummyNews(context, "2"), dummyNews(context, "3")],
         ),
       ),
     );

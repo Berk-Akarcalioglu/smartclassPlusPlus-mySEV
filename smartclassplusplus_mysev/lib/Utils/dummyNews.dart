@@ -6,9 +6,9 @@ Widget dummyNews(BuildContext context, String title) {
     padding: const EdgeInsets.all(8.0),
     child: Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Colors.lime,
+          color: Colors.blueGrey,
           shape: BoxShape.rectangle,
           border: Border.all(
             color: Colors.transparent,
@@ -16,6 +16,7 @@ Widget dummyNews(BuildContext context, String title) {
           borderRadius: BorderRadius.circular(50)
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -24,7 +25,10 @@ Widget dummyNews(BuildContext context, String title) {
             width: MediaQuery.of(context).size.width,
             color: Colors.transparent,
             child: Text(
-              title
+              title,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.body2.color,
+              ),
             ),
           ),
           Container(
@@ -34,6 +38,9 @@ Widget dummyNews(BuildContext context, String title) {
               "This is an exmaple message, it could be replaced with virtually anything, I hope that it would be used for good and not for something inapropriate.",
               softWrap: true,
               textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.body2.color,
+              ),
             ),
           ),
         ],
