@@ -40,20 +40,30 @@ class MainPage extends StatelessWidget {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).primaryColor,
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
-              drawerButton(context, "Grade Calculator", Icons.grade,
-                  Colors.white, Colors.black, () {
+              drawerButton(
+                  context,
+                  "Grade Calculator",
+                  Theme.of(context).textTheme.body2,
+                  Icons.grade,
+                  Theme.of(context).accentColor,
+                  Theme.of(context).textTheme.body2.color, () {
                 Navigator.pop(context);
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => GradeCalcPage()));
               }),
-              drawerButton(context, "Grade Predictor", Icons.grade,
-                  Colors.white, Colors.black, () {
+              drawerButton(
+                  context,
+                  "Grade Predictor",
+                  Theme.of(context).textTheme.body2,
+                  Icons.grade,
+                  Theme.of(context).accentColor,
+                  Theme.of(context).textTheme.body2.color, () {
                 Navigator.pop(context);
                 Navigator.push(
                     context,
@@ -71,7 +81,11 @@ class MainPage extends StatelessWidget {
         color: Theme.of(context).backgroundColor,
         child: PageView(
           scrollDirection: Axis.horizontal,
-          children: <Widget>[dummyNews(context, "1"), dummyNews(context, "2"), dummyNews(context, "3")],
+          children: <Widget>[
+            dummyNews(context, "1"),
+            dummyNews(context, "2"),
+            dummyNews(context, "3")
+          ],
         ),
       ),
     );

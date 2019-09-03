@@ -29,6 +29,7 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       child: Container(
+                        height: 300,
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             border: Border.all(

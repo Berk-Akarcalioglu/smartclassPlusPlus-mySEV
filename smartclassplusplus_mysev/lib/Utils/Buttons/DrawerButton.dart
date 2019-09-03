@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget drawerButton(BuildContext context, String text, IconData icon, Color bgColor, Color iconColor, Function function) {
+Widget drawerButton(BuildContext context, String text, TextStyle style, IconData icon, Color bgColor, Color iconColor, Function function) {
   return MaterialButton(
     height: 20,
     color: bgColor,
@@ -16,7 +16,10 @@ Widget drawerButton(BuildContext context, String text, IconData icon, Color bgCo
           icon,
           color: iconColor,
         ),
-        Text(text),
+        Text(
+          text,
+          style: style,
+        ),
       ],
     ),
   );

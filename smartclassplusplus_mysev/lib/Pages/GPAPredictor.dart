@@ -17,9 +17,11 @@ class _GPAPredictorState extends State<GPAPredictor> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           TextFormField(
             controller: gpaCont,
