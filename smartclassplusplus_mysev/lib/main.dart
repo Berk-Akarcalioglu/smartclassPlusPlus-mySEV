@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smartclassplusplus_mysev/Auth/auth.dart';
+import 'package:smartclassplusplus_mysev/Pages/LoginPage.dart';
 import 'package:smartclassplusplus_mysev/Pages/MainPage.dart';
 
 void main() => runApp(MyApp());
@@ -21,6 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: Color(0xfdf0f6),
         accentColor: Color.fromRGBO(149, 21, 85, 1),
+        primaryColor: Color.fromRGBO(119, 17, 68, 1),
         appBarTheme: AppBarTheme(
           color: Color.fromRGBO(119, 17, 68, 1),
           elevation: 1,
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),    
       ),
-      home: MainPage(),
+      home: authServices.userID == null ? LoginPage() : MainPage(),
       debugShowCheckedModeBanner: false,
     );
   }
