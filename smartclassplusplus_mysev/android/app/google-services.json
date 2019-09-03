@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "268398219041",
+    "firebase_url": "https://smartclassplusplus.firebaseio.com",
+    "project_id": "smartclassplusplus",
+    "storage_bucket": "smartclassplusplus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268398219041:android:af1846d817cd1719",
+        "android_client_info": {
+          "package_name": "com.argos.smartclassplusplus_mysev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268398219041-bba3tqrvvjrbj47fltoi01rbgf5hmkuq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNO0SLo7P5amdE0VbYOmZnVV7QaNB2wf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268398219041-bba3tqrvvjrbj47fltoi01rbgf5hmkuq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "268398219041-lcjbdo2pakclcd7ujoe86m8e6mgdvoqt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.argos.smartclassplusplusMysev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

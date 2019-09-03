@@ -1,9 +1,12 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 List<double> gradeslist = [60.0, 66.0, 76.0, 86.0, 88.0, 100.0, ];
+
+DocumentReference test = Firestore.instance.collection('Classes').document('gIPMogBflcNthD8MyQo8').collection('Exams').document('wXff1Ppyqke2RAsgpLgF');
 
 class Classes {
   var lessons = new Map();
@@ -64,49 +67,8 @@ Widget examList(BuildContext context, Lesson lesson) {
 
   for (var exam in lesson.exams) {
     lessons.add(
-      Padding(
-        padding: const EdgeInsets.all(5),
-        child: Container(
-          decoration: BoxDecoration(
-            color: gradeColor(convertToUSGrade(exam.grade)),
-            shape: BoxShape.rectangle,
-            border: Border.all(
-              color: Colors.transparent,
-            ),
-            borderRadius: BorderRadius.circular(30)
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CircleAvatar(
-                backgroundColor: gradeColor(convertToUSGrade(exam.grade)),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 4 *3,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(
-                      "Lesson: ${lesson.name}",
-                      style: Theme.of(context).textTheme.body2,
-
-                    ),
-                    Text(
-                      "Exam Name: ${exam.name}",
-                      style: Theme.of(context).textTheme.body2,
-                    ),
-                    Text(
-                      "Grade: ${exam.grade}",
-                      style: Theme.of(context).textTheme.body2,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-    ),
-      ));
+      examContainer(context, exam.grade, exam.name, lesson.name)
+      );
   }
 
   return ListBody(
@@ -169,4 +131,50 @@ double convertToUSGrade(double grade) {
     }else {
       return 0;
     }
+  }
+
+  Widget examContainer(BuildContext context, double grade, String examName, String lessonName) {
+    return Padding(
+        padding: const EdgeInsets.all(5),
+        child: Container(
+          decoration: BoxDecoration(
+            color: gradeColor(convertToUSGrade(grade)),
+            shape: BoxShape.rectangle,
+            border: Border.all(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(30)
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircleAvatar(
+                backgroundColor: gradeColor(convertToUSGrade(grade)),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 4 *3,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      "Lesson: ${lessonName}",
+                      style: Theme.of(context).textTheme.body2,
+
+                    ),
+                    Text(
+                      "Exam Name: ${examName}",
+                      style: Theme.of(context).textTheme.body2,
+                    ),
+                    Text(
+                      "Grade: ${grade}",
+                      style: Theme.of(context).textTheme.body2,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+    ),
+      );
   }

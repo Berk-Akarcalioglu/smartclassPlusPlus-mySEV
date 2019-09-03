@@ -1,0 +1,14 @@
+dependencies: \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/leveldb-library/table/two_level_iterator.cc \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Target\ Support\ Files/leveldb-library/leveldb-library-prefix.pch \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/leveldb-library/table/two_level_iterator.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/iterator.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/export.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/slice.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/status.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/table.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/leveldb-library/table/block.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/leveldb-library/table/format.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/table_builder.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/leveldb-library/leveldb/options.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/leveldb-library/table/iterator_wrapper.h

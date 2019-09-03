@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
         ),  
         splashColor: Colors.transparent,  
       ),
-      home: authServices.userID == null ? LoginPage() : MainPage(),
+      home: authService.userID == null ? LoginPage() : MainPage(),
       debugShowCheckedModeBanner: false,
     );
   }
