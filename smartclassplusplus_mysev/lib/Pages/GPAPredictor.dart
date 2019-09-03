@@ -1,4 +1,7 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smartclassplusplus_mysev/Utils/GradeCalc.dart';
 
 class GPAPredictor extends StatefulWidget {
@@ -17,20 +20,27 @@ class _GPAPredictorState extends State<GPAPredictor> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           TextFormField(
             controller: gpaCont,
+            inputFormatters: [
+              BlacklistingTextInputFormatter(RegExp("[a-z]")),
+              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
+              
+            ],
             decoration: InputDecoration(
               hintText: "Grade 1",
             ),
           ),
           TextFormField(
             controller: gpaCont2,
+            inputFormatters: [
+              BlacklistingTextInputFormatter(RegExp("[a-z]")),
+              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
+            ],
             decoration: InputDecoration(
               hintText: "Grade 2",
             ),
@@ -67,6 +77,10 @@ class _GPAPredictorState extends State<GPAPredictor> {
           ),
           TextFormField(
             controller: gpaCont3,
+            inputFormatters: [
+              BlacklistingTextInputFormatter(RegExp("[a-z]")),
+              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
+            ],
             decoration: InputDecoration(
               hintText: "Wanted Grade",
             ),

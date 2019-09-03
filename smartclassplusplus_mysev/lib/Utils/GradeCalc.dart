@@ -1,6 +1,4 @@
-
 import 'package:smartclassplusplus_mysev/Resources/Classes.dart';
-
 class GPA {
   
   List<double> credits = [5, 1, 5, 5];
@@ -51,14 +49,13 @@ class GPA {
     double firstgrade = input1 == "" ? 0.0 : double.parse(input1);
     double secondgrade = input2 == "" ? 0.0 : double.parse(input2);
     double wantedgrade = wanted == "" ? 0.0 : double.parse(wanted);
-
+  
     _predictedGrade = 3*(wantedgrade)- (firstgrade+secondgrade);
-  try{
 
+
+try{
     if ((input1.isEmpty) || (input2.isEmpty) || (wanted.isEmpty)) {
       throw ("Please fill in all of the inputs.");
-    }else if (firstgrade == String || secondgrade == String || wantedgrade == String ){
-      throw("You cannot write a string.");
     }else if((firstgrade > 100) || (secondgrade > 100) || (wantedgrade > 100)){
       _predictedGrade = 0.0;
       throw ("You cannot enter a grade bigger than a hundred.");
@@ -72,9 +69,8 @@ class GPA {
       throw ("Keep it up");
     }else {
       _predictedGrade = (3*wantedgrade)- (firstgrade+secondgrade);
-    }
-    
-  }catch (e){
+    } 
+}catch (e){
     error = e.toString();
     print(e);
   }
