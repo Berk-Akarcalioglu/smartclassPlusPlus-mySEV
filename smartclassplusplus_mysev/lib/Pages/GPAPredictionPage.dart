@@ -14,11 +14,30 @@ class _GPAPredictionPageState extends State<GPAPredictionPage> {
         elevation: Theme.of(context).appBarTheme.elevation,
         backgroundColor: Theme.of(context).appBarTheme.color,
         title: Text("Grade Predictor"),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ])),
+        ),
       ),
-        body: Container(
+      body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Theme.of(context).secondaryHeaderColor,
+              Theme.of(context).primaryColor,
+            ],
+            stops: <double>[0.4, 1.0],
+          )),
           alignment: Alignment.center,
-          child: GPAPredictor()
-          ),
+          child: GPAPredictor()),
     );
   }
 }

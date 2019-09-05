@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/AuthProvider/OAuth/FIROAuthProvider.m \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIROAuthProvider.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRFederatedAuthProvider.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthUIDelegate.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Backend/FIRAuthBackend.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Auth/FIRAuth_Internal.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuth.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthErrors.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthAPNSTokenType.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/Headers/Private/FirebaseAuthInterop/FIRAuthInterop.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Utilities/FIRAuthErrorUtils.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Auth/FIRAuthGlobalWorkQueue.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Backend/FIRAuthRequestConfiguration.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Backend/FIRAuthRPCRequest.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Utilities/FIRAuthWebUtils.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRFacebookAuthProvider.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/AuthProvider/OAuth/FIROAuthCredential_Internal.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIROAuthCredential.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthCredential.h \
+  /Users/ouzo/github/mySEV/smartclassPlusPlus-mySEV/smartclassplusplus_mysev/ios/Pods/FirebaseAuth/Firebase/Auth/Source/Utilities/FIRAuthURLPresenter.h

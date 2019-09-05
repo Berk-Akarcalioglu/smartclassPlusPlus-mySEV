@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -158,16 +156,16 @@ double convertToUSGrade(double grade) {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text(
-                      "Lesson: ${lessonName}",
+                      "Lesson: $lessonName",
                       style: Theme.of(context).textTheme.body2,
 
                     ),
                     Text(
-                      "Exam Name: ${examName}",
+                      "Exam Name: $examName",
                       style: Theme.of(context).textTheme.body2,
                     ),
                     Text(
-                      "Grade: ${grade}",
+                      "Grade: $grade",
                       style: Theme.of(context).textTheme.body2,
                     ),
                   ],

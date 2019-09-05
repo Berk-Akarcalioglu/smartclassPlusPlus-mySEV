@@ -10,7 +10,6 @@ Widget testbuttonsdrawer(BuildContext context) {
         "${i}",
         Theme.of(context).textTheme.body2,
         Icons.search,
-        Theme.of(context).accentColor,
         Theme.of(context).textTheme.body2.color,
         () {}));
   }

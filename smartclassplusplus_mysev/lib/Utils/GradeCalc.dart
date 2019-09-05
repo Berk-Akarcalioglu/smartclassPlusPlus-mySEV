@@ -7,6 +7,9 @@ class GPA {
   double _predictedGrade = 0.0;
   String error;
 
+  double totalOnlineGrade = 0;
+  double totalOnlineCredit = 0;
+
   double gpa(double totalCredits, double totalGrade) {
     return totalGrade /totalCredits;
   }
@@ -22,7 +25,7 @@ class GPA {
       print("${temp.name}'s grade is: ${convertToUSGrade(temp.getGrade())}");
     }
 
-    print("Total grade: ${total}");
+    print("Total grade: $total");
 
     return total;
   }
@@ -39,7 +42,7 @@ class GPA {
       print("${temp.name}'s credit is: ${temp.credit}");
     }
 
-    print("Total credits: ${total}");
+    print("Total credits: $total");
 
     return total;
   }

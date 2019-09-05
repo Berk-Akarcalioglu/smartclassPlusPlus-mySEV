@@ -3,6 +3,7 @@ import 'package:smartclassplusplus_mysev/Pages/GPAPredictionPage.dart';
 import 'package:smartclassplusplus_mysev/Pages/GradeCalcPage.dart';
 import 'package:smartclassplusplus_mysev/Utils/Buttons/DrawerButton.dart';
 import 'package:smartclassplusplus_mysev/Utils/dummyNews.dart';
+import 'package:smartclassplusplus_mysev/Utils/examAddition.dart';
 import 'package:smartclassplusplus_mysev/Utils/testButtonsDrawer.dart';
 
 class MainPage extends StatelessWidget {
@@ -22,7 +23,22 @@ class MainPage extends StatelessWidget {
                   Icons.library_books,
                   color: Theme.of(context).appBarTheme.iconTheme.color,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Container(
+                          child: ExamAddition(),
+                        ),
+                      );
+                    },
+                    
+                  );
+                },
               ),
               IconButton(
                 icon: Icon(
@@ -34,13 +50,35 @@ class MainPage extends StatelessWidget {
             ],
           ),
         ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: <Color>[
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ]
+              
+            )
+          ),
+        ),
       ),
       drawer: Drawer(
         semanticLabel: 'Grade Calculator',
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          color: Theme.of(context).primaryColor,
+          //color: Theme.of(context).primaryColor,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color>[
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ]
+              
+            ),
+          ),
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
@@ -49,7 +87,6 @@ class MainPage extends StatelessWidget {
                   "Grade Calculator",
                   Theme.of(context).textTheme.body2,
                   Icons.grade,
-                  Theme.of(context).accentColor,
                   Theme.of(context).textTheme.body2.color, () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -62,7 +99,6 @@ class MainPage extends StatelessWidget {
                   "Grade Predictor",
                   Theme.of(context).textTheme.body2,
                   Icons.grade,
-                  Theme.of(context).accentColor,
                   Theme.of(context).textTheme.body2.color, () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -77,14 +113,37 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height / 3,
-        color: Theme.of(context).backgroundColor,
-        child: PageView(
-          scrollDirection: Axis.horizontal,
+        height: MediaQuery.of(context).size.height,
+        //color: Theme.of(context).backgroundColor,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Theme.of(context).secondaryHeaderColor,
+              Theme.of(context).primaryColor,
+            ],
+            stops: <double>[
+              0.4,
+              1.0
+            ],
+            
+          )
+        ),
+        child: Column(
           children: <Widget>[
-            dummyNews(context, "1"),
-            dummyNews(context, "2"),
-            dummyNews(context, "3")
+            Container(
+              color: Colors.transparent,
+              height: MediaQuery.of(context).size.height / 3,
+              child: PageView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  dummyNews(context, "1"),
+                  dummyNews(context, "2"),
+                  dummyNews(context, "3")
+                ],
+              ),
+            ),
           ],
         ),
       ),

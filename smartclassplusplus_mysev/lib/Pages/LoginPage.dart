@@ -93,38 +93,41 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Theme.of(context).primaryColor,
-                    Theme.of(context).secondaryHeaderColor,
-                  ],
-                  stops: [0.3, 1.0],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Theme.of(context).primaryColor,
+                      Theme.of(context).secondaryHeaderColor,
+                    ],
+                    stops: [0.3, 1.0],
+                  ),
+                  border: Border.all(color: Colors.transparent),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                border: Border.all(color: Colors.transparent),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: FlatButton(
-                color: Colors.transparent,
-                focusColor: Colors.transparent,
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onPressed: () {
-                  //authServices.login();
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      new MaterialPageRoute(builder: (context) => MainPage()),
-                      (Route<dynamic> route) => false);
-                },
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.body2.color,
-                    fontSize: 30,
+                child: FlatButton(
+                  color: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onPressed: () {
+                    //authServices.login();
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        new MaterialPageRoute(builder: (context) => MainPage()),
+                        (Route<dynamic> route) => false);
+                  },
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      color: Theme.of(context).textTheme.body2.color,
+                      fontSize: 30,
+                    ),
                   ),
                 ),
               ),

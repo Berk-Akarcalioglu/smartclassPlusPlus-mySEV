@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(149, 21, 85, 1)/*.fromRGBO(119, 17, 68, 1)*/,
         secondaryHeaderColor: Color.fromRGBO(181, 37, 26, 1)/*.fromRGBO(145, 30, 21, 1)*/,
         appBarTheme: AppBarTheme(
-          color: Color.fromRGBO(119, 17, 68, 1),
-          elevation: 1,
+          color: Color.fromRGBO(181, 37, 26, 1)/*.fromRGBO(119, 17, 68, 1)*/,
+          elevation: 0,
           iconTheme: IconThemeData(
             color: Colors.white
           ),

@@ -23,37 +23,38 @@ class _GPAPredictorState extends State<GPAPredictor> {
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          TextFormField(
-            controller: gpaCont,
-            inputFormatters: [
-              BlacklistingTextInputFormatter(RegExp("[a-z]")),
-              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
-              
-            ],
-            decoration: InputDecoration(
-              hintText: "Grade 1",
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height / 10,
+            child: GridView.count(
+              crossAxisCount: 3,
+              children: <Widget>[
+                gradeInputBox(context, gpaCont, "Grade 1"),
+                gradeInputBox(context, gpaCont2, "Grade 2"),
+                gradeInputBox(context, gpaCont3, "Wanted Grade"),
+              ],
             ),
           ),
-          TextFormField(
-            controller: gpaCont2,
-            inputFormatters: [
-              BlacklistingTextInputFormatter(RegExp("[a-z]")),
-              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
-            ],
-            decoration: InputDecoration(
-              hintText: "Grade 2",
-            ),
+          //gradeInputBox(context, gpaCont, "Grade 1"),
+          //gradeInputBox(context, gpaCont2, "Grade 2"),
+          Text(
+            _temp == ""
+                ? (_temp == "Error"
+                    ? _temp
+                    : _temp == "0.0"
+                        ? /*_temp*/ ""
+                        : ("Min Grade needed:" +
+                            _gpa.getPredictedGrade().toString()))
+                : _temp,
+            style: Theme.of(context).textTheme.body2,
           ),
-          Text(_temp == ""
-              ? (_temp == "Error"
-                  ? _temp
-                  : _temp == "0.0"
-                      ? /*_temp*/ ""
-                      : ("Min Grade needed:" +
-                          _gpa.getPredictedGrade().toString()))
-              : _temp),
-          RaisedButton(
+          FlatButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            color: Colors.transparent,
             onPressed: () {
               setState(() {
                 _gpa.gradePrediction(
@@ -61,11 +62,9 @@ class _GPAPredictorState extends State<GPAPredictor> {
                 print("Predicted Grade: ${_gpa.getPredictedGrade()}");
                 _temp = _gpa.getPredictedGrade().toString();
                 if (_gpa.error != null) {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)
-                      ),
+                  Scaffold.of(context).showSnackBar(SnackBar(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
                     backgroundColor: Theme.of(context).accentColor,
                     content: Text(_gpa.error),
                   ));
@@ -74,19 +73,59 @@ class _GPAPredictorState extends State<GPAPredictor> {
                 }
               });
             },
-          ),
-          TextFormField(
-            controller: gpaCont3,
-            inputFormatters: [
-              BlacklistingTextInputFormatter(RegExp("[a-z]")),
-              BlacklistingTextInputFormatter(RegExp("[A-Z]")),
-            ],
-            decoration: InputDecoration(
-              hintText: "Wanted Grade",
+            child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[
+                      Theme.of(context).primaryColor,
+                      Theme.of(context).secondaryHeaderColor,
+                      Theme.of(context).primaryColor,
+                    ],
+                    stops: <double>[
+                      0.0,
+                      0.5,
+                      1.0,
+                    ],
+                  ),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                    color: Colors.transparent,
+                  ),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Text(
+                "Calculate",
+                style: Theme.of(context).textTheme.body2,
+              ),
             ),
           ),
+          //gradeInputBox(context, gpaCont3, "Wanted Grade"),
         ],
       ),
     );
   }
+}
+
+Widget gradeInputBox(
+    BuildContext context, TextEditingController controller, String hintText) {
+  return Container(
+    padding: EdgeInsets.all(5),
+    child: TextFormField(
+      textAlign: TextAlign.center,
+      cursorColor: Colors.white,
+      controller: controller,
+      inputFormatters: [
+        BlacklistingTextInputFormatter(RegExp("[a-z]")),
+        BlacklistingTextInputFormatter(RegExp("[A-Z]")),
+      ],
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: Theme.of(context).textTheme.body2,
+        hasFloatingPlaceholder: true,
+      ),
+      style: Theme.of(context).textTheme.body2,
+    ),
+  );
 }

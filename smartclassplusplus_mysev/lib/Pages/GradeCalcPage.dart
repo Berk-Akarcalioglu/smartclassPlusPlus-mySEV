@@ -11,9 +11,11 @@ class GradeCalcPage extends StatefulWidget {
 
 class _GradeCalcPageState extends State<GradeCalcPage> {
   Classes yearClass = new Classes();
+  GPA _gpa = new GPA();
 
   @override
   Widget build(BuildContext context) {
+    _gpa.totalOnlineGrade = 0;
     return Scaffold(
       appBar: AppBar(
         elevation: Theme.of(context).appBarTheme.elevation,
@@ -30,116 +32,123 @@ class _GradeCalcPageState extends State<GradeCalcPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       child: Container(
-                        height: 300,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: Colors.transparent,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.transparent),
+                            borderRadius: BorderRadius.circular(30),
+                            gradient: RadialGradient(
+                              radius: 1.0,
+                              colors: <Color>[
+                                Theme.of(context).secondaryHeaderColor,
+                                Theme.of(context).primaryColor,
+                              ],
+                              stops: <double>[
+                                0.0,
+                                2.0,
+                              ],
                             ),
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Scaffold(
+                          ),
+                          child: Scaffold(
                             backgroundColor: Colors.transparent,
-                            body: GPAPredictor()),
-                      ),
+                            body: GPAPredictor(),
+                          )),
                     );
                   });
             },
             icon: Icon(Icons.note_add),
           ),
         ],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                Theme.of(context).primaryColor,
+                Theme.of(context).secondaryHeaderColor,
+              ])),
+        ),
       ),
       body: Container(
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
-        color: Colors.transparent,
+        //color: Colors.transparent,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Theme.of(context).secondaryHeaderColor,
+            Theme.of(context).primaryColor,
+          ],
+          stops: <double>[0.4, 1.0],
+        )),
         child: ListView(
           children: <Widget>[
-            examList(context, yearClass.lessons['tr']),
-            examList(context, yearClass.lessons['math']),
-            Container(
-              alignment: Alignment.center,
-              child: Text(
-                  "GPA : ${gpa.gpa(gpa.getTotalCredit(yearClass.lessons), gpa.getTotalGrade(yearClass.lessons)).floorToDouble()}"),
+            //examList(context, yearClass.lessons['tr']),
+            //examList(context, yearClass.lessons['math']),
+            Column(
+              children: <Widget>[
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height - 140,
+                  child: StreamBuilder(
+                    stream: Firestore.instance.collection('Exams').snapshots(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      _gpa.totalOnlineCredit = snapshot.data.documents.length.toDouble();
+                      return ListView.builder(
+                        itemCount: snapshot.data.documents.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          _gpa.totalOnlineGrade += convertToUSGrade(snapshot
+                              .data.documents[index]['grade']
+                              .toDouble());
+                          print(_gpa.totalOnlineGrade);
+                          return Container(
+                            color: Colors.transparent,
+                            child: examContainer(
+                                context,
+                                (snapshot.data.documents[index]['grade'])
+                                    .toDouble(),
+                                snapshot.data.documents[index]['name'],
+                                snapshot.data.documents[index]['lesson']),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
             Container(
-              height: 500,
+              width: 30,
               alignment: Alignment.center,
-              child: StreamBuilder(
-                stream: Firestore.instance.collection('Classes').snapshots(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  return ListView.builder(
-                    itemCount: snapshot.data.documents.length,
-                    itemBuilder: (context, index) => Column(
-                      children: <Widget>[
-                        Container(
-                            color: Colors.amber,
-                            child: Text(snapshot.data.documents[index]['name']
-                                .toString())),
-                        Container(
-                          height: 50,
-                          color: Colors.lightBlue,
-                          child: StreamBuilder(
-                            stream: Firestore.instance
-                                .collection('Exams')
-                                .snapshots(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot snapshot2) {
-                              return ListView.builder(
-                                itemCount: snapshot2.data.documents.length,
-                                itemBuilder:
-                                    (BuildContext context, int index2) {
-                                  return Container(
-                                    color: Colors.amber,
-                                    child: Text(snapshot2
-                                        .data.documents[index2]['name']
-                                        .toString()),
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                        ),
-                        Container(
-                          height: 100,
-                          color: Colors.lightBlue,
-                          child: StreamBuilder(
-                            stream: Firestore.instance
-                                .collection('Exams')
-                                .snapshots(),
-                            builder: (BuildContext context,
-                                AsyncSnapshot snapshot2) {
-                              return ListView.builder(
-                                itemCount: snapshot2.data.documents.length,
-                                itemBuilder:
-                                    (BuildContext context, int index2) {
-                                  return Column(
-                                    children: <Widget>[
-                                      Container(
-                                        color: Colors.amber,
-                                        child: Text(snapshot2
-                                            .data.documents[index2]['grade']
-                                            .toString()),
-                                      ),
-                                      Container(
-                                        color: Colors.transparent,
-                                        child: examContainer(
-                                            context,
-                                            (snapshot2.data.documents[index2]
-                                                ['grade']).toDouble(),
-                                            snapshot2.data.documents[index2]
-                                                ['name'], snapshot.data.documents[index]['name']),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                        ),
+              padding: EdgeInsets.all(10),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        Theme.of(context).primaryColor,
+                        Theme.of(context).secondaryHeaderColor,
+                        Theme.of(context).primaryColor,
+                      ],
+                      stops: <double>[
+                        0.0,
+                        0.5,
+                        1.0,
                       ],
                     ),
-                  );
-                },
+                    shape: BoxShape.rectangle,
+                    border: Border.all(
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(50)),
+                child: Text(
+                  "GPA : ${gpa.gpa(_gpa.totalOnlineCredit.toDouble(), _gpa.totalOnlineGrade)}",
+                  style: Theme.of(context).textTheme.body2,
+                ),
               ),
             ),
           ],

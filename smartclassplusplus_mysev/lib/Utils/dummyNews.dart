@@ -8,7 +8,21 @@ Widget dummyNews(BuildContext context, String title) {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Colors.blueGrey,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Theme.of(context).primaryColor,
+              Theme.of(context).secondaryHeaderColor,
+              Theme.of(context).primaryColor,
+            ],
+            stops: <double>[
+              0.0,
+              0.5,
+              1.0,
+            ],
+            
+          ),
           shape: BoxShape.rectangle,
           border: Border.all(
             color: Colors.transparent,
