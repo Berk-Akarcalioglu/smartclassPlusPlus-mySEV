@@ -1,6 +1,6 @@
 # smartclassplusplus_mysev
 
-A new Flutter project.
+A new Flutter project. Created by @Berk-Akarcalioglu and @Lupus07
 
 ## Getting Started
 
